@@ -1,0 +1,110 @@
+#ifndef FPEC_INTERFACE_H_
+#define FPEC_INTERFACE_H_
+
+#define FPEC_FLASH_START_ADDRESS										(0x08000000)
+#define FPEC_FLASH_END_ADDRESS											(0x08010000)
+
+
+#define FLASH_SECTOR0_BASE_ADDRESS         								0x08000000
+#define FLASH_SECTOR1_BASE_ADDRESS										0x08004000
+#define FLASH_SECTOR2_BASE_ADDRESS     								    0x08008000
+#define FLASH_SECTOR3_BASE_ADDRESS         								0x0800C000
+#define FLASH_SECTOR4_BASE_ADDRESS          							0x08010000
+#define FLASH_SECTOR5_BASE_ADDRESS          							0x08020000
+#define FLASH_SECTOR6_BASE_ADDRESS          							0x08040000
+#define FLASH_SECTOR7_BASE_ADDRESS          							0x08060000
+
+typedef enum
+{
+	FLASH_PAGE0  = 0  ,
+	FLASH_PAGE1  = 1  ,
+	FLASH_PAGE2  = 2  ,
+	FLASH_PAGE3  = 3  ,
+	FLASH_PAGE4  = 4  ,
+	FLASH_PAGE5  = 5  ,
+	FLASH_PAGE6  = 6  ,
+	FLASH_PAGE7  = 7  ,
+	FLASH_PAGE8  = 8  ,
+	FLASH_PAGE9  = 9  ,
+	FLASH_PAGE10 = 10 ,
+	FLASH_PAGE11 = 11 ,
+	FLASH_PAGE12 = 12 ,
+	FLASH_PAGE13 = 13 ,
+	FLASH_PAGE14 = 14 ,
+	FLASH_PAGE15 = 15 ,
+	FLASH_PAGE16 = 16 ,
+	FLASH_PAGE17 = 17 ,
+	FLASH_PAGE18 = 18 ,
+	FLASH_PAGE19 = 19 ,
+	FLASH_PAGE20 = 20 ,
+	FLASH_PAGE21 = 21 ,
+	FLASH_PAGE22 = 22 ,
+	FLASH_PAGE23 = 23 ,
+	FLASH_PAGE24 = 24 ,
+	FLASH_PAGE25 = 25 ,
+	FLASH_PAGE26 = 26 ,
+	FLASH_PAGE27 = 27 ,
+	FLASH_PAGE28 = 28 ,
+	FLASH_PAGE29 = 29 ,
+	FLASH_PAGE30 = 30 ,
+	FLASH_PAGE31 = 31 ,
+	FLASH_PAGE32 = 32 ,
+	FLASH_PAGE33 = 33 ,
+	FLASH_PAGE34 = 34 ,
+	FLASH_PAGE35 = 35 ,
+	FLASH_PAGE36 = 36 ,
+	FLASH_PAGE37 = 37 ,
+	FLASH_PAGE38 = 38 ,
+	FLASH_PAGE39 = 39 ,
+	FLASH_PAGE40 = 40 ,
+	FLASH_PAGE41 = 41 ,
+	FLASH_PAGE42 = 42 ,
+	FLASH_PAGE43 = 43 ,
+	FLASH_PAGE44 = 44 ,
+	FLASH_PAGE45 = 45 ,
+	FLASH_PAGE46 = 46 ,
+	FLASH_PAGE47 = 47 ,
+	FLASH_PAGE48 = 48 ,
+	FLASH_PAGE49 = 49 ,
+	FLASH_PAGE50 = 50 ,
+	FLASH_PAGE51 = 51 ,
+	FLASH_PAGE52 = 52 ,
+	FLASH_PAGE53 = 53 ,
+	FLASH_PAGE54 = 54 ,
+	FLASH_PAGE55 = 55 ,
+	FLASH_PAGE56 = 56 ,
+	FLASH_PAGE57 = 57 ,
+	FLASH_PAGE58 = 58 ,
+	FLASH_PAGE59 = 59 ,
+	FLASH_PAGE60 = 60 ,
+	FLASH_PAGE61 = 61 ,
+	FLASH_PAGE62 = 62 ,
+	FLASH_PAGE63 = 63
+
+}FPEC_FlashPage_t;
+
+typedef enum
+{
+	RDP_LEVEL_0 = 0xA5 ,
+	RDP_LEVEL_1 = 0x00
+
+}FPEC_RDPLevel_t;
+
+typedef enum
+{
+	FLASH_LATENCY_0,  /* FLASH Zero Latency cycle */
+	FLASH_LATENCY_1,  /* FLASH One Latency cycle */
+	FLASH_LATENCY_2   /* FLASH Two Latency cycles */
+}FPEC_Latency_t;
+
+
+
+Error_Status FLASH_xSetLatency(FPEC_Latency_t Copy_xFLASH_Latency);
+Error_Status FPEC_xProgrammHalfword(uint32 Copy_u32Address , uint16 Copy_xData);
+Error_Status FPEC_xPageErase(FPEC_FlashPage_t Copy_xPage);
+void FPEC_vMassErase(void);
+
+
+
+
+#endif /* FPEC_INTERFACE_H_ */
